@@ -27,5 +27,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("tag", "onClick: " + s);
             }
         });
+
     }
 }

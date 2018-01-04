@@ -36,7 +36,11 @@ add_library(
              # Provides a relative path to your source file(s).
              #指定路径下的源文件代码，可以为这个类库指定多个.cpp文件
              src/main/cpp/c01.c
-             src/main/cpp/native-lib.cpp )
+             src/main/cpp/c02.c
+             src/main/cpp/native-lib.cpp
+             src/main/cpp/compute/Operate.c
+             src/main/cpp/compute/Operate.h
+             )
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by

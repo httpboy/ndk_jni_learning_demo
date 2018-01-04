@@ -18,4 +18,6 @@ public class NdkC01 {
      */
     //本地方法在java类中的声明，具体实现在'native-lib' native library
     public static native String ndkc01();
+
+    public static native String ndkc02();
 }
