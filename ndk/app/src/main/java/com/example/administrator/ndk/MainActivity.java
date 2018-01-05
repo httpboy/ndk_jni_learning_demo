@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_c_01).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String s = NdkC01.ndkc01();
+                //String s = NdkC01.ndkc01();
+                String s = NdkC01.ndkc02();
                 Log.d("tag", "onClick: " + s);
             }
         });
