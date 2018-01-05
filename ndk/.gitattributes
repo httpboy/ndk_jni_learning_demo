@@ -1,2 +1,10 @@
 *.c linguist-language=Java
 *.cpp linguist-language=Java
+
+#我不是很明白 Github 的语言识别机制，
+#但是似乎跟项目中所有文件的后缀有关系，
+#如果它把我们的项目标识为 JavaScript，
+#那肯定是因为我们项目中以 js 结尾的文件较多
+#（这在 web 项目中非常常见），所以只需要通过
+#linguist-language，让 Github 把 js 结尾的文件看作
+#java 文件就可以达到修改语言类别的目的。

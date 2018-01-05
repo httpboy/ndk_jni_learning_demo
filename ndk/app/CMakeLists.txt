@@ -37,6 +37,7 @@ add_library(
              #指定路径下的源文件代码，可以为这个类库指定多个.cpp文件
              src/main/cpp/c01.c
              src/main/cpp/c02.c
+             src/main/cpp/c03.c
              src/main/cpp/native-lib.cpp
              src/main/cpp/compute/Operate.c
              src/main/cpp/compute/Operate.h

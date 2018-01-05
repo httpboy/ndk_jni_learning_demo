@@ -20,4 +20,7 @@ public class NdkC01 {
     public static native String ndkc01();
 
     public static native String ndkc02();
+
+    public static native String ndkc03();
+
 }
