@@ -2,10 +2,6 @@
 用AndroidStudio 3.0 学习 ndk jni 的项目代码
 
 [Android NDK JNI 开发之旅 开源项目](https://github.com/cb858504/ndk_jni_learning_demo)
->微信公众号（高质量文章推送）：走向全栈工程师
-作者：陈博易
-声明：本文是个人原创，未经允许请勿转载
-商业合作请在微信公众号回复：联系方式
 ## 环境以及工具
 ---
 1. Android项目：AndroidStudio3.0   
