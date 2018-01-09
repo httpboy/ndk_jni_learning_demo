@@ -2,12 +2,10 @@ package com.example.administrator.ndk;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import com.ndk.use.JniUtils;
-import com.ndk.use.NdkC01;
+import com.ndk.use.NdkC;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private void testNdk() {
         //String s = NdkC01.ndkc01();
         //String s = NdkC01.ndkc02();
-        String s = NdkC01.ndkc03();
+        //String s = NdkC.ndkc03();
+        String s = NdkC.ndkc04();
     }
 }

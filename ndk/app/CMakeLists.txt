@@ -38,6 +38,7 @@ add_library(
              src/main/cpp/c01.c
              src/main/cpp/c02.c
              src/main/cpp/c03.c
+             src/main/cpp/c04.c
              src/main/cpp/native-lib.cpp
              src/main/cpp/compute/Operate.c
              src/main/cpp/compute/Operate.h

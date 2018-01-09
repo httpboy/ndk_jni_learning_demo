@@ -18,7 +18,7 @@
 JNIEXPORT
 jstring
 JNICALL
-Java_com_ndk_use_NdkC01_ndkc01(JNIEnv *env, jclass type) {
+Java_com_ndk_use_NdkC_ndkc01(JNIEnv *env, jclass type) {
     //*********************************知识点：定义基本数据类型*****************************
     char f = 1;
     short b = 2;

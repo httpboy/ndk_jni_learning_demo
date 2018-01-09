@@ -31,7 +31,7 @@ void heapFunction() {
 JNIEXPORT
 jstring
 JNICALL
-Java_com_ndk_use_NdkC01_ndkc02(JNIEnv *env, jclass type) {
+Java_com_ndk_use_NdkC_ndkc02(JNIEnv *env, jclass type) {
     //*********************************知识点：动态内存分配*****************************
     //我的网名就是 Stack overflow：栈溢出错误
     /**

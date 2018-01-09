@@ -19,7 +19,7 @@
 JNIEXPORT
 jstring
 JNICALL
-Java_com_ndk_use_NdkC01_ndkc03(JNIEnv *env, jclass type) {
+Java_com_ndk_use_NdkC_ndkc03(JNIEnv *env, jclass type) {
     //*********************************知识点：创建字符数组存储字符串*****************************
 
     //参考：http://www.jb51.net/article/37456.htm
@@ -59,6 +59,7 @@ Java_com_ndk_use_NdkC01_ndkc03(JNIEnv *env, jclass type) {
      * */
 
     //*********************************知识点：字符串操作函数#include <string.h>*****************************
+
     //参考:https://www.cnblogs.com/alaigle/archive/2012/05/24/2516062.html
 
 
