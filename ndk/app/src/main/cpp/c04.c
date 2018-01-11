@@ -64,6 +64,35 @@ struct Parent2 {
 
 };
 
+//typedef  使用它来为类型取一个新的名字
+
+typedef int in;//给int 类型取别名
+typedef int *in_Pinter;//给int* 类型取别名
+
+typedef struct People mPeople;//给People 类型取别名
+typedef struct People *mPeople_pointer;//给 People * 类型取别名
+
+typedef struct object {//给object 类型取别名man moman
+    char *name;
+    int age;
+} man, woman;
+
+//结构体中有函数指针成员
+//定义一个函数
+char * Bye(char *name) {
+    char chs[100] = "Bye to ";
+    strcat(chs, name);
+    return chs;
+};
+
+struct SuperMan {
+    char *name;
+    int age;
+
+    char *(*Bye)(char *);
+};
+
+
 JNIEXPORT
 jstring
 JNICALL
@@ -148,6 +177,7 @@ Java_com_ndk_use_NdkC_ndkc04(JNIEnv *env, jclass type) {
 
 
     //*********************************知识点：结构体的大小（字节对齐）*****************************
+
     //参考:http://blog.csdn.net/u012807459/article/details/48545141
     /*
      * 结构体大小计算
@@ -170,21 +200,49 @@ Java_com_ndk_use_NdkC_ndkc04(JNIEnv *env, jclass type) {
     //*********************************知识点：结构体与mallloc动态内存分配*****************************
 
     struct People *p_pointer = malloc(sizeof(struct People) * 10);//24字节*10
+
+    struct People *last_pointer = p_pointer;//记录修改前的指针
+
     strcpy(p_pointer->name, "malloc");
     p_pointer->age = 100;
     LOGF("%s,%d", p_pointer->name, p_pointer->age);//malloc,100
 
-    p_pointer++;
+    p_pointer++;//指针移动
 
     p_pointer->age = 102;
     strcpy(p_pointer->name, "malloc2");
 
-    LOGF("p_pointer[1]==%s,%d,p_pointer[2]==%s,%d", p_pointer->name, p_pointer->age,
-         p_pointer->name, p_pointer->age);//malloc,100
+    LOGF("p_pointer[1]==%s,%d,p_pointer[2]==%s,%d", last_pointer->name, last_pointer->age,
+         p_pointer->name, p_pointer->age);//p_pointer[1]==malloc,100,p_pointer[2]==malloc2,102
 
 
+    //释放内存
+    free(p_pointer);
+    free(last_pointer);
+
+    //*********************************知识点：typedef 使用它来为类型取一个新的名字*****************************
+    //typedef int in;//给int 类型取别名
+    in age = 100;
+    in_Pinter in_pinter = &age;
+    LOGF("%x,%d", in_pinter, age);//malloc,100
+
+    mPeople people6 = {"name", 15};//给People 类型取别名
+    mPeople_pointer mp = &people6;
+    LOGF("%s,%d", mp->name, mp->age);//name,15
+
+    man obj_man = {"obj_man", 16};//给object 类型取别名man moman
+    woman obj_woman = {"obj_woman", 70};//给object 类型取别名man moman
 
 
+    //*********************************知识点：结构体与函数指针成员*****************************
+
+    struct SuperMan superMan;
+    superMan.name = "陈博易";
+    superMan.age = 100;
+    superMan.Bye = Bye;//地址赋值
+    LOGF("Bye的地址==%X", Bye);//Bye的地址==B2A63251
+    char *chs = superMan.Bye(superMan.name);
+    LOGF("%s", chs);//Bye to 陈博易
     return (*env)->NewStringUTF(env, "Hello from JNI!");
 }
 

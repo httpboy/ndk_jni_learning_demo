@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         //String s = NdkC01.ndkc01();
         //String s = NdkC01.ndkc02();
         //String s = NdkC.ndkc03();
-        String s = NdkC.ndkc04();
+        //String s = NdkC.ndkc04();
+        String s = NdkC.ndkc05();
     }
 }

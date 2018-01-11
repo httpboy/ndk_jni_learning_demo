@@ -25,4 +25,6 @@ public class NdkC {
 
     public static native String ndkc04();
 
+    public static native String ndkc05();
+
 }
