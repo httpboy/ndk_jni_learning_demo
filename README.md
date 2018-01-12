@@ -1,7 +1,8 @@
-# ndk_jni_learning_demo
-用AndroidStudio 3.0 学习 ndk jni 的项目代码
+# AndroidStudio3.0  NDK JNI 开发之旅
+Cmake构建方式
 
 [Android NDK JNI 开发之旅 开源项目](https://github.com/cb858504/ndk_jni_learning_demo)
+
 ## 环境以及工具
 ---
 1. Android项目：AndroidStudio3.0   
