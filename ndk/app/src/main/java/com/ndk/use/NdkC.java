@@ -27,4 +27,6 @@ public class NdkC {
 
     public static native String ndkc05();
 
+    public static native String ndkc06(String path);
+
 }

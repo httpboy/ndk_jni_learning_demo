@@ -22,6 +22,18 @@ union MyUnion {
     double z;
 };
 
+//定义枚举（列举所有的情况）: 限定取值范围
+enum Day {
+    Monday = 0,
+    Tuesday = 1,
+    Wednesday = 2,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday
+};
+
+
 JNIEXPORT
 jstring
 JNICALL
@@ -41,6 +53,15 @@ Java_com_ndk_use_NdkC_ndkc05(JNIEnv *env, jclass type) {
     myUnion.x = 1;
     myUnion.y = 2;//最后一个赋值有效（因为使用相同的内存位置）
     LOGW("union=%d,%d", myUnion.x, myUnion.y);//union=2,2
+
+
+
+    //*********************************知识点：枚举 *****************************
+    //参考   https://www.cnblogs.com/JCSU/articles/1299051.html
+
+    //使用枚举类型声明变量同时对枚举型变量赋值
+    enum Day enumDay = Sunday;
+    LOGW("enumDay=%X,星期%d", &enumDay, enumDay + 1);//enumDay=BEEECC38,星期7
 
     return (*env)->NewStringUTF(env, "Hello from JNI!");
 }
