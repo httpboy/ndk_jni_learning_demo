@@ -22,6 +22,8 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../jniLibs/${ANDROID_AB
 #Gradle可以自动将shared类库打包到你的APK中。
 
 # CMake根据指定的源文件生成库文件
+file(GLOB native_c "src/main/cpp/c/*.*")
+file(GLOB native_compute "src/main/cpp/compute/*.*")
 add_library(
             # Sets the name of the library
             #设置类库的名字
@@ -35,15 +37,17 @@ add_library(
 
              # Provides a relative path to your source file(s).
              #指定路径下的源文件代码，可以为这个类库指定多个.cpp文件
-             src/main/cpp/c01.c
-             src/main/cpp/c02.c
-             src/main/cpp/c03.c
-             src/main/cpp/c04.c
-             src/main/cpp/c05.c
-             src/main/cpp/c06.c
+             ${native_c}
+             ${native_compute}
+             #src/main/cpp/c01.c
+             #src/main/cpp/c02.c
+             #src/main/cpp/c03.c
+             #src/main/cpp/c04.c
+             #src/main/cpp/c05.c
+             #src/main/cpp/c06.c
              src/main/cpp/native-lib.cpp
-             src/main/cpp/compute/Operate.c
-             src/main/cpp/compute/Operate.h
+             #src/main/cpp/compute/Operate.c
+             #src/main/cpp/compute/Operate.h
              )
 
 # Searches for a specified prebuilt library and stores the path as a

@@ -1,9 +1,12 @@
 package com.ndk.use;
 
 /**
- * author: Administrator
- * created on: 2018/1/3 21:19
- * description:
+ * 演示c语言的本地方法
+ * Create by: 陈博易
+ * Date: 2018/1/15
+ * time:  23:37
+ * Email: 495057454@qq.com
+ * 请关注微信公众号：走向全栈工程师
  */
 public class NdkC {
     // Used to load the 'native-lib' library on application startup.

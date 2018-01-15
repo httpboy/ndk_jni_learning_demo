@@ -3,7 +3,7 @@
 //
 #include <jni.h>
 #include <android/log.h>
-#include "compute/Operate.h"
+#include "../compute/Operate.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
