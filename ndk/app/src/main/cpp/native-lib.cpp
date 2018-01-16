@@ -9,7 +9,7 @@ JNIEXPORT jstring JNICALL
 //参数1：JNIEnv类型实际上代表了Java环境，通过这个JNIEnv *env指针，就可以对Java端的代码进行操作
 //参数2：jobject表明这个函数是一个实例方法，指向这个实例对象。
 //jclass，表明是个静态方法，指向这个类的class
-Java_com_ndk_use_JniUtils_stringFromJNI(JNIEnv *env, jclass type) {
+Java_com_ndk_use_HelloJni_stringFromJNI(JNIEnv *env, jclass type) {
     //标准C++库字符串类std::string的用法
     std::string hello = "Hello from C++";
     //jstring rtstr = env->NewStringUTF(hello.c_str());

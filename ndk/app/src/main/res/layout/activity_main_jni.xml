@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.ndk.MainActivityC">
+
+    <TextView
+        android:id="@+id/sample_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="演示jni项目" />
+
+    <Button
+        android:id="@+id/btn_jni_03"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="c访问java非静态成员变量" />
+
+    <Button
+        android:id="@+id/btn_jni_03_set_static_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="c访问java静态成员变量" />
+
+    <Button
+        android:id="@+id/btn_jni_03_set_no_static_method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="c访问java非静态方法" />
+
+    <Button
+        android:id="@+id/btn_jni_03_set_static_method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="c访问java静态方法" />
+
+</LinearLayout>

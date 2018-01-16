@@ -9,17 +9,11 @@ package com.ndk.use;
  * 请关注微信公众号：走向全栈工程师
  */
 public class NdkC {
-    // Used to load the 'native-lib' library on application startup.
     //在应用开启的时候就加载native-lib
     static {
         System.loadLibrary("native-lib");
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    //本地方法在java类中的声明，具体实现在'native-lib' native library
     public static native String ndkc01();
 
     public static native String ndkc02();
