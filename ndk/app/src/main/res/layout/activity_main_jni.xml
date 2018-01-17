@@ -38,4 +38,10 @@
         android:layout_height="wrap_content"
         android:text="c访问java静态方法" />
 
+    <Button
+        android:id="@+id/btn_jni_03_set_ConstructorP_method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="c访问java构造方法" />
+
 </LinearLayout>

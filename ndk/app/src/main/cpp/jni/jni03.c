@@ -105,3 +105,28 @@ Java_com_ndk_use_NdkJni_ndkJni03SetStaticMethod(JNIEnv *env, jobject j_obj) {
 
     return (*env)->NewStringUTF(env, "Hello from JNI!");
 }
+
+JNIEXPORT
+jint
+JNICALL
+Java_com_ndk_use_NdkJni_ndkJni03CallConstructorMethod(JNIEnv *env, jobject j_obj) {
+
+
+    //*********************************知识点：访问java构造方法 com.example.administrator.ndk.MyClass *****************************
+
+    //获取jclass
+    jclass j_class = (*env)->FindClass(env, "com/example/administrator/ndk/MyClass");
+    //找到构造方法jmethodID   public MyClass(int width, int height)
+    jmethodID j_constructor_methoid = (*env)->GetMethodID(env, j_class, "<init>", "(II)V");
+    //初始化java类构造方法  public MyClass(int width, int height)
+    jobject j_myClass_obj = (*env)->NewObject(env, j_class, j_constructor_methoid, 2, 3);
+
+
+    //找到getArea()  jmethodID
+    jmethodID j_getArea_methoid = (*env)->GetMethodID(env, j_class, "getArea", "()I");
+    //调用java中的   public int getArea() 获取面积
+    jint j_area = (*env)->CallIntMethod(env, j_myClass_obj, j_getArea_methoid);
+    LOGI("面积==%d", j_area);//面积==6
+
+    return j_area;
+}

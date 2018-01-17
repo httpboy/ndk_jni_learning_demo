@@ -6,8 +6,8 @@ package com.ndk.use;
  * description:
  */
 public class NdkJni {
-    public int noStaticKeyValue = 0;
 
+    public int noStaticKeyValue = 0;
     public static String staticKeyValue = "陈博易";
 
     private String method = "暂时没被访问";
@@ -42,5 +42,7 @@ public class NdkJni {
     public native String ndkJni03SetMethod();
 
     public native String ndkJni03SetStaticMethod();
+
+    public native int ndkJni03CallConstructorMethod();
 
 }

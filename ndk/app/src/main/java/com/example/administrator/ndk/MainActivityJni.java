@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.ndk.use.NdkJni;
 
+import java.util.concurrent.TimeUnit;
+
 public class MainActivityJni extends AppCompatActivity implements View.OnClickListener {
 
     private Button mBtnJni03;
@@ -15,6 +17,7 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
     private Button mBtnJni03_btn_jni_03_set_static_value;
     private Button mBtnJni03_btn_jni_03_set_no_static_method;
     private Button mBtnJni03_btn_jni_03_set_static_method;
+    private Button mBtnJni03_btn_jni_03_set_ConstructorP_method;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +36,13 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
         mBtnJni03_btn_jni_03_set_static_value = (Button) findViewById(R.id.btn_jni_03_set_static_value);
         mBtnJni03_btn_jni_03_set_no_static_method = (Button) findViewById(R.id.btn_jni_03_set_no_static_method);
         mBtnJni03_btn_jni_03_set_static_method = (Button) findViewById(R.id.btn_jni_03_set_static_method);
+        mBtnJni03_btn_jni_03_set_ConstructorP_method = (Button) findViewById(R.id.btn_jni_03_set_ConstructorP_method);
+
         mBtnJni03.setOnClickListener(this);
         mBtnJni03_btn_jni_03_set_static_value.setOnClickListener(this);
         mBtnJni03_btn_jni_03_set_no_static_method.setOnClickListener(this);
         mBtnJni03_btn_jni_03_set_static_method.setOnClickListener(this);
+        mBtnJni03_btn_jni_03_set_ConstructorP_method.setOnClickListener(this);
     }
 
     private void testNdkJni() {
@@ -72,6 +78,14 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
                 NdkJni ndkJni = new NdkJni();
                 ndkJni.ndkJni03SetStaticMethod();
                 mTvShow.setText("StaticKeyValue修改前=陈博易，修改后=" + NdkJni.staticMethod);
+            }
+            break;
+            case R.id.btn_jni_03_set_ConstructorP_method://c访问java非静态方法
+            {
+                NdkJni ndkJni = new NdkJni();
+                int i = ndkJni.ndkJni03CallConstructorMethod();
+                mTvShow.setText("面积=" + i);
+
             }
             break;
             default:
