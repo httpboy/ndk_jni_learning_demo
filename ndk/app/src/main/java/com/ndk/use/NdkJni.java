@@ -45,4 +45,9 @@ public class NdkJni {
 
     public native int ndkJni03CallConstructorMethod();
 
+    public static native String ndkJni03HandString(String text);
+
+    public static native void ndkJni03HandIntArray(int[] array);
+
+    public static native int[] ndkJni03ReturnIntArray(int length);
 }

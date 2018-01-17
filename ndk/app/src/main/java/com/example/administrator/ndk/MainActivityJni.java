@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.administrator.ndk.utils.StringUtils;
 import com.ndk.use.NdkJni;
 
 import java.util.concurrent.TimeUnit;
@@ -18,6 +19,9 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
     private Button mBtnJni03_btn_jni_03_set_no_static_method;
     private Button mBtnJni03_btn_jni_03_set_static_method;
     private Button mBtnJni03_btn_jni_03_set_ConstructorP_method;
+    private Button mBtnJni03_btn_jni_03_HandString;
+    private Button mBtnJni03_btn_jni_03_HandIntArray;
+    private Button mBtnJni03_btn_jni_03_JniReturnIntArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +41,18 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
         mBtnJni03_btn_jni_03_set_no_static_method = (Button) findViewById(R.id.btn_jni_03_set_no_static_method);
         mBtnJni03_btn_jni_03_set_static_method = (Button) findViewById(R.id.btn_jni_03_set_static_method);
         mBtnJni03_btn_jni_03_set_ConstructorP_method = (Button) findViewById(R.id.btn_jni_03_set_ConstructorP_method);
+        mBtnJni03_btn_jni_03_HandString = (Button) findViewById(R.id.btn_jni_03_handle_string);
+        mBtnJni03_btn_jni_03_HandIntArray = (Button) findViewById(R.id.btn_jni_03_handle_intArray);
+        mBtnJni03_btn_jni_03_JniReturnIntArray = (Button) findViewById(R.id.btn_jni_03_jni_return_array);
 
         mBtnJni03.setOnClickListener(this);
         mBtnJni03_btn_jni_03_set_static_value.setOnClickListener(this);
         mBtnJni03_btn_jni_03_set_no_static_method.setOnClickListener(this);
         mBtnJni03_btn_jni_03_set_static_method.setOnClickListener(this);
         mBtnJni03_btn_jni_03_set_ConstructorP_method.setOnClickListener(this);
+        mBtnJni03_btn_jni_03_HandString.setOnClickListener(this);
+        mBtnJni03_btn_jni_03_HandIntArray.setOnClickListener(this);
+        mBtnJni03_btn_jni_03_JniReturnIntArray.setOnClickListener(this);
     }
 
     private void testNdkJni() {
@@ -57,30 +67,30 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
             {
                 NdkJni ndkJni = new NdkJni();
                 ndkJni.ndkJni03();
-                mTvShow.setText("noStaticKeyValue修改前=0，修改后=" + ndkJni.noStaticKeyValue);
+                mTvShow.setText("noStaticKeyValue修改前=0\n修改后=" + ndkJni.noStaticKeyValue);
             }
             break;
             case R.id.btn_jni_03_set_static_value://c访问java静态成员变量
             {
                 new NdkJni().ndkJni03SetValue();
-                mTvShow.setText("StaticKeyValue修改前=陈博易，修改后=" + NdkJni.staticKeyValue);
+                mTvShow.setText("StaticKeyValue修改前=陈博易\n修改后=" + NdkJni.staticKeyValue);
             }
             break;
             case R.id.btn_jni_03_set_no_static_method://c访问java静态方法
             {
                 NdkJni ndkJni = new NdkJni();
                 ndkJni.ndkJni03SetMethod();
-                mTvShow.setText("StaticKeyValue修改前=陈博易，修改后=" + ndkJni.getMethod());
+                mTvShow.setText("StaticKeyValue修改前=陈博易\n修改后=" + ndkJni.getMethod());
             }
             break;
             case R.id.btn_jni_03_set_static_method://c访问java非静态方法
             {
                 NdkJni ndkJni = new NdkJni();
                 ndkJni.ndkJni03SetStaticMethod();
-                mTvShow.setText("StaticKeyValue修改前=陈博易，修改后=" + NdkJni.staticMethod);
+                mTvShow.setText("StaticKeyValue修改前=陈博易\n修改后=" + NdkJni.staticMethod);
             }
             break;
-            case R.id.btn_jni_03_set_ConstructorP_method://c访问java非静态方法
+            case R.id.btn_jni_03_set_ConstructorP_method://c访问java自定义类(计算面积)
             {
                 NdkJni ndkJni = new NdkJni();
                 int i = ndkJni.ndkJni03CallConstructorMethod();
@@ -88,6 +98,31 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
 
             }
             break;
+            case R.id.btn_jni_03_handle_string://jni层处理java层传入的String
+            {
+                String handString = NdkJni.ndkJni03HandString("走向全栈工程师");
+                mTvShow.setText("传入String=走向全栈工程师\n返回String=" + handString);
+
+            }
+            break;
+            case R.id.btn_jni_03_handle_intArray://jni层处理java层传入的int[]进行排序算法
+            {
+                int[] numbers = new int[]{5, 9, 1, 3, 7, 8};
+                NdkJni.ndkJni03HandIntArray(numbers);
+                mTvShow.setText("排序前：{5, 9, 1, 3, 7, 8}\n" +
+                        "排序后" + StringUtils.intArraysToString(numbers));
+
+            }
+            break;
+            case R.id.btn_jni_03_jni_return_array://jni层创建一个数组,并且调用jni层方法进行排序
+            {
+                int[] jni03ReturnIntArray = NdkJni.ndkJni03ReturnIntArray(10);
+                NdkJni.ndkJni03HandIntArray(jni03ReturnIntArray);
+                mTvShow.setText("jni层创建一个随机数组" + StringUtils.intArraysToString(jni03ReturnIntArray));
+
+            }
+            break;
+
             default:
                 break;
         }

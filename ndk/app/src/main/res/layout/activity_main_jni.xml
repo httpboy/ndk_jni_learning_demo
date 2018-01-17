@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:minLines="2"
         android:text="演示jni项目" />
 
     <Button
@@ -42,6 +43,27 @@
         android:id="@+id/btn_jni_03_set_ConstructorP_method"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="c访问java构造方法" />
+        android:text="c访问java自定义类(计算面积)" />
 
+
+    <Button
+        android:id="@+id/btn_jni_03_handle_string"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="jni层处理java层传入的String"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_jni_03_handle_intArray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="jni层处理java层传入的int[]进行排序算法"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_jni_03_jni_return_array"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="jni层创建一个数组,并且调用jni层方法进行排序"
+        android:textAllCaps="false" />
 </LinearLayout>
