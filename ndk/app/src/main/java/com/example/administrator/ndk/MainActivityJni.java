@@ -22,6 +22,8 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
     private Button mBtnJni03_btn_jni_03_HandString;
     private Button mBtnJni03_btn_jni_03_HandIntArray;
     private Button mBtnJni03_btn_jni_03_JniReturnIntArray;
+    private Button mBtnJni03_btn_jni_03_Jni_Reference;
+    private Button mBtnJni03_btn_jni_03_Jni_get_Reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,8 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
         mBtnJni03_btn_jni_03_HandString = (Button) findViewById(R.id.btn_jni_03_handle_string);
         mBtnJni03_btn_jni_03_HandIntArray = (Button) findViewById(R.id.btn_jni_03_handle_intArray);
         mBtnJni03_btn_jni_03_JniReturnIntArray = (Button) findViewById(R.id.btn_jni_03_jni_return_array);
+        mBtnJni03_btn_jni_03_Jni_Reference = (Button) findViewById(R.id.btn_jni_03_jni_reference);
+        mBtnJni03_btn_jni_03_Jni_get_Reference = (Button) findViewById(R.id.btn_jni_03_jni_get_reference);
 
         mBtnJni03.setOnClickListener(this);
         mBtnJni03_btn_jni_03_set_static_value.setOnClickListener(this);
@@ -53,6 +57,8 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
         mBtnJni03_btn_jni_03_HandString.setOnClickListener(this);
         mBtnJni03_btn_jni_03_HandIntArray.setOnClickListener(this);
         mBtnJni03_btn_jni_03_JniReturnIntArray.setOnClickListener(this);
+        mBtnJni03_btn_jni_03_Jni_Reference.setOnClickListener(this);
+        mBtnJni03_btn_jni_03_Jni_get_Reference.setOnClickListener(this);
     }
 
     private void testNdkJni() {
@@ -122,7 +128,18 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
 
             }
             break;
+            case R.id.btn_jni_03_jni_reference://jni层创建引用（全局、局部）
+            {
+                NdkJni.ndkJni03ReReference();
+            }
+            case R.id.btn_jni_03_jni_get_reference://jni层获取引用（全局、局部）
+            {
+                String ndkJni03GetReReference = NdkJni.ndkJni03GetReReference();
+                mTvShow.setText("jni层获取到的string" + ndkJni03GetReReference);
 
+            }
+
+            break;
             default:
                 break;
         }

@@ -15,55 +15,84 @@
         android:minLines="2"
         android:text="演示jni项目" />
 
-    <Button
-        android:id="@+id/btn_jni_03"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="c访问java非静态成员变量" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btn_jni_03_set_static_value"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="c访问java静态成员变量" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_jni_03_set_no_static_method"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="c访问java非静态方法" />
+            <Button
+                android:id="@+id/btn_jni_03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="c访问java非静态成员变量" />
 
-    <Button
-        android:id="@+id/btn_jni_03_set_static_method"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="c访问java静态方法" />
+            <Button
+                android:id="@+id/btn_jni_03_set_static_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="c访问java静态成员变量" />
 
-    <Button
-        android:id="@+id/btn_jni_03_set_ConstructorP_method"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="c访问java自定义类(计算面积)" />
+            <Button
+                android:id="@+id/btn_jni_03_set_no_static_method"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="c访问java非静态方法" />
+
+            <Button
+                android:id="@+id/btn_jni_03_set_static_method"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="c访问java静态方法" />
+
+            <Button
+                android:id="@+id/btn_jni_03_set_ConstructorP_method"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="c访问java自定义类(计算面积)" />
 
 
-    <Button
-        android:id="@+id/btn_jni_03_handle_string"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="jni层处理java层传入的String"
-        android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_jni_03_handle_string"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="jni层处理java层传入的String"
+                android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_jni_03_handle_intArray"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="jni层处理java层传入的int[]进行排序算法"
-        android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_jni_03_handle_intArray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="jni层处理java层传入的int[]进行排序算法"
+                android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_jni_03_jni_return_array"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="jni层创建一个数组,并且调用jni层方法进行排序"
-        android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_jni_03_jni_return_array"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="jni层创建一个数组,并且调用jni层方法进行排序"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_jni_03_jni_reference"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="jni层创建引用（全局、局部）"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_jni_03_jni_get_reference"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="jni层获取引用（全局、局部）"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
 </LinearLayout>

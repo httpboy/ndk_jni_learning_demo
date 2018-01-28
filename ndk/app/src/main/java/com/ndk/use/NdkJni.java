@@ -50,4 +50,8 @@ public class NdkJni {
     public static native void ndkJni03HandIntArray(int[] array);
 
     public static native int[] ndkJni03ReturnIntArray(int length);
+
+    public static native void ndkJni03ReReference();
+
+    public static native String ndkJni03GetReReference();
 }
