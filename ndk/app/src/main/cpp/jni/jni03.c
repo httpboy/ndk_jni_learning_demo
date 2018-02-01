@@ -140,17 +140,17 @@ Java_com_ndk_use_NdkJni_ndkJni03HandString(JNIEnv *env, jclass j_in_class, jstri
     //*********************************知识点：jni层处理java层传入的String *****************************
 
     //jstring-string
-    char *c_str = (*env)->GetStringUTFChars(env, j_in_string_, NULL);
+    const char *c_str = (*env)->GetStringUTFChars(env, j_in_string_, NULL);
     LOGE("c_str==%s", c_str);//走向全栈工程师
     //处理string
-    char *c_text = ",希望大家多多支持";
+    const char *c_text = ",希望大家多多支持";
     strcat(c_str, c_text);
     LOGE("c_str==%s", c_str);//c_str==走向全栈工程师,希望大家多多支持
 
     //string-jstring,如果会有中文乱码问题，自行处理（可以调用java的String(byte[] bytes, String charsetName)）
     jstring j_handle_string = (*env)->NewStringUTF(env, c_str);
 
-    //释放内存
+    //释放
     (*env)->ReleaseStringUTFChars(env, j_in_string_, c_str);
 
     return j_handle_string;
