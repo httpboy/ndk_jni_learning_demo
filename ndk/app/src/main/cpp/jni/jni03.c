@@ -23,6 +23,42 @@ Java_com_ndk_use_NdkJni_ndkJni03(JNIEnv *env, jobject j_obj) {
 
     //*********************************知识点：访问java成员变量，并且修改非静态变量值 *****************************
 
+
+    /*      方法签名解释：（参数）返回值
+     *           public void test(){}                   ()V
+     *           public void test1(int i){}              (I)V
+     *           public int test2(){ return 1;}         ()I
+     *           public int test3(int i) { return i;}          (I)I
+     *
+     *      基本数据类型对应关系( Boolean 比较特殊, 对应的是 Z ， Long 对应 J)
+     *          Z           boolean
+     *          B           byte
+     *          C           char
+     *          S           short
+     *          I           int
+     *          J           long
+     *          F           float
+     *          D           double
+     *
+     *      引用数据类型(以“L”开头，以“；”结束，中间对应的是该类型的完整路径)
+     *          String ： Ljava/lang/String;
+     *          Ljava/lang/Object;
+     *
+     *          案例
+     *              自定义类 MyClass对应完整类名com.example.administrator.ndk.MyClass
+     *              MyClass ： Lcom/example/administrator/ndk/MyClass：
+     *
+     *      数组表示
+     *          int [] ：[I
+     *          Long[][]  ： [[J
+     *          Object[][][] ： [[[Ljava/lang/Object
+     *
+     *
+     *
+     *
+     *
+     * */
+
     //获取jclass
     jclass j_class = (*env)->GetObjectClass(env, j_obj);
     //获取jfieldID
@@ -139,6 +175,15 @@ Java_com_ndk_use_NdkJni_ndkJni03HandString(JNIEnv *env, jclass j_in_class, jstri
 
     //*********************************知识点：jni层处理java层传入的String *****************************
 
+    /*
+     *          资源释放
+     *                  JNI 基本数据类型是不需要释放的 ，
+     *                  如 jint , jlong , jchar 等等 。
+     *                  我们需要释放是引用数据类型，
+     *                  当然也包括数组家族。如：jstring ，
+     *                  jobject ，jobjectArray，jintArray 等等。
+     *
+     * */
     //jstring-string
     const char *c_str = (*env)->GetStringUTFChars(env, j_in_string_, NULL);
     LOGE("c_str==%s", c_str);//走向全栈工程师
@@ -207,5 +252,44 @@ Java_com_ndk_use_NdkJni_ndkJni03ReturnIntArray(JNIEnv *env, jclass j_in_class, j
     }
     (*env)->ReleaseIntArrayElements(env, j_intArray, p_jint, JNI_OK);
     return j_intArray;
+
+}
+
+//创建全局引用(共享)
+jstring global_jstring;
+
+JNIEXPORT
+void
+JNICALL
+Java_com_ndk_use_NdkJni_ndkJni03ReReference(JNIEnv *env, jclass j_in_class) {
+    //*********************************知识点：jni层创建引用（全局、局部） *****************************
+
+    /*      引用类型：局部引用和全局引用
+     *              局部引用，通过DeleteLocalRef手动释放对象
+     *
+     *
+     * */
+    char *text = "走向全栈工程师";
+    jstring j_str = (*env)->NewStringUTF(env, text);
+
+    global_jstring = (*env)->NewGlobalRef(env, j_str);
+
+    (*env)->ReleaseStringUTFChars(env, j_str, text);
+
+}
+
+JNIEXPORT
+jstring
+JNICALL
+Java_com_ndk_use_NdkJni_ndkJni03GetReReference(JNIEnv *env, jclass j_in_class) {
+    //*********************************知识点：jni层获取引用（全局、局部） *****************************
+
+    /*      引用类型：局部引用和全局引用
+     *              局部引用，通过DeleteLocalRef手动释放对象
+     *
+     *
+     * */
+
+    return global_jstring;
 
 }
