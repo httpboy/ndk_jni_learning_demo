@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.administrator.ndk.MainActivityC">
-
-    <TextView
-        android:id="@+id/tv_show"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    tools:context="com.example.administrator.ndk.MainActivity">
 
     <Button
-        android:id="@+id/btn_c_01"
+        android:id="@+id/btn_c"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="演示代码都在包名c下面" />
+        android:text="演示c入门"
+        android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn_jni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="演示Jni入门"
+        android:textAllCaps="false" />
 </LinearLayout>

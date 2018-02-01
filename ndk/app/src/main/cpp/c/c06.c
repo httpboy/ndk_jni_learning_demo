@@ -38,14 +38,14 @@ Java_com_ndk_use_NdkC_ndkc06(JNIEnv *env, jclass type, jstring filePath) {
      *
      * */
 
-    /*const char *jstr_filePath = (*env)->GetStringUTFChars(env, filePath, NULL);//string-jstring
+    const char *jstr_filePath = (*env)->GetStringUTFChars(env, filePath, NULL);//string-jstring
     LOGE("%s", jstr_filePath);// /storage/emulated/0/boy.txt
     //打开文件，允许写入文件
     FILE *fp = fopen(jstr_filePath, "w");
     char *writeString = "走向全栈工程师";
     fputs(writeString, fp);
     fclose(fp);
-    (*env)->ReleaseStringUTFChars(env, filePath, jstr_filePath);//释放*/
+    (*env)->ReleaseStringUTFChars(env, filePath, jstr_filePath);//释放
 
 
     //*********************************知识点：读取文本文件*****************************
@@ -192,7 +192,7 @@ Java_com_ndk_use_NdkC_ndkc06(JNIEnv *env, jclass type, jstring filePath) {
    *
    * */
 
-    const char *encryt_Path = "/storage/emulated/0/img_encrypt.jpg";
+    /*const char *encryt_Path = "/storage/emulated/0/img_encrypt.jpg";
     const char *de_encryt_Path = "/storage/emulated/0/img_de_encryt.jpg";
     //打开文件，允许写入文件
     FILE *encryt_fp = fopen(encryt_Path, "rb");
@@ -208,7 +208,7 @@ Java_com_ndk_use_NdkC_ndkc06(JNIEnv *env, jclass type, jstring filePath) {
     }
 
     fclose(encryt_fp);
-    fclose(de_encryt_fp);
+    fclose(de_encryt_fp);*/
     return (*env)->NewStringUTF(env, "Hello from JNI!");
 }
 

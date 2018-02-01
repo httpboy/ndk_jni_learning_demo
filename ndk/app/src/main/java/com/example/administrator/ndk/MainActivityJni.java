@@ -1,5 +1,7 @@
 package com.example.administrator.ndk;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,6 +26,13 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
     private Button mBtnJni03_btn_jni_03_JniReturnIntArray;
     private Button mBtnJni03_btn_jni_03_Jni_Reference;
     private Button mBtnJni03_btn_jni_03_Jni_get_Reference;
+    private Button mBtnJni03_btn_jni_03_Jni_env;
+    private Button mBtnJni03_btn_jni_03_Jni_exeception;
+
+    public static void lanchActivity(Activity activity) {
+        Intent intent = new Intent(activity, MainActivityJni.class);
+        activity.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +57,8 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
         mBtnJni03_btn_jni_03_JniReturnIntArray = (Button) findViewById(R.id.btn_jni_03_jni_return_array);
         mBtnJni03_btn_jni_03_Jni_Reference = (Button) findViewById(R.id.btn_jni_03_jni_reference);
         mBtnJni03_btn_jni_03_Jni_get_Reference = (Button) findViewById(R.id.btn_jni_03_jni_get_reference);
+        mBtnJni03_btn_jni_03_Jni_env = (Button) findViewById(R.id.btn_jni_03_jni_env);
+        mBtnJni03_btn_jni_03_Jni_exeception = (Button) findViewById(R.id.btn_jni_03_jni_exeception);
 
         mBtnJni03.setOnClickListener(this);
         mBtnJni03_btn_jni_03_set_static_value.setOnClickListener(this);
@@ -59,6 +70,9 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
         mBtnJni03_btn_jni_03_JniReturnIntArray.setOnClickListener(this);
         mBtnJni03_btn_jni_03_Jni_Reference.setOnClickListener(this);
         mBtnJni03_btn_jni_03_Jni_get_Reference.setOnClickListener(this);
+        mBtnJni03_btn_jni_03_Jni_get_Reference.setOnClickListener(this);
+        mBtnJni03_btn_jni_03_Jni_env.setOnClickListener(this);
+        mBtnJni03_btn_jni_03_Jni_exeception.setOnClickListener(this);
     }
 
     private void testNdkJni() {
@@ -132,10 +146,23 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
             {
                 NdkJni.ndkJni03ReReference();
             }
+            break;
             case R.id.btn_jni_03_jni_get_reference://jni层获取引用（全局、局部）
             {
                 String ndkJni03GetReReference = NdkJni.ndkJni03GetReReference();
-                mTvShow.setText("jni层获取到的string" + ndkJni03GetReReference);
+                mTvShow.setText(ndkJni03GetReReference);
+
+            }
+
+            break;
+            case R.id.btn_jni_03_jni_exeception://jni层获取引用（全局、局部）
+            {
+                try {
+                    String ndkEnv = NdkJni.exeception();
+                    mTvShow.setText(ndkEnv);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
             }
 

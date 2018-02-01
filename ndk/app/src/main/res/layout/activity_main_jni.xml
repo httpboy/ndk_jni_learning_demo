@@ -89,6 +89,22 @@
                 android:layout_height="wrap_content"
                 android:text="jni层获取引用（全局、局部）"
                 android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_jni_03_jni_env"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="理解JNIEnv *env(c语言)"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_jni_03_jni_exeception"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Java层捕捉native异常 "
+                android:textAllCaps="false" />
+
+
         </LinearLayout>
 
 

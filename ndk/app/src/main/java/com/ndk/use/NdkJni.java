@@ -54,4 +54,8 @@ public class NdkJni {
     public static native void ndkJni03ReReference();
 
     public static native String ndkJni03GetReReference();
+
+    public static native String ndkJni03Env();
+
+    public static native String exeception();
 }

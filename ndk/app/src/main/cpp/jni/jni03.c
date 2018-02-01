@@ -269,13 +269,10 @@ Java_com_ndk_use_NdkJni_ndkJni03ReReference(JNIEnv *env, jclass j_in_class) {
      *
      *
      * */
-    char *text = "走向全栈工程师";
+    char *text = "获取全局变量：走向全栈工程师";
     jstring j_str = (*env)->NewStringUTF(env, text);
 
     global_jstring = (*env)->NewGlobalRef(env, j_str);
-
-    (*env)->ReleaseStringUTFChars(env, j_str, text);
-
 }
 
 JNIEXPORT
