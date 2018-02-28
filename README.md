@@ -10,7 +10,10 @@ Cmake构建方式
 3. CMake3.6.4   
 4. LLDB3.0
 ## 项目预览
-![](http://upload-images.jianshu.io/upload_images/3376017-3dc6f7a8e52b28cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](http://upload-images.jianshu.io/upload_images/3376017-26662f75bc7fe95f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![image.png](http://upload-images.jianshu.io/upload_images/3376017-729ac466298c3446.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 
 
@@ -24,7 +27,7 @@ Cmake构建方式
 [Android NDK JNI 开发之旅 so类库 JAR包使用](https://www.jianshu.com/p/3e44f9e80131)
 
 2. c语言基础篇（更新完成，但是教程还没写）
-3. JNI基础到深入（更新中）
+3. JNI基础到深入（更新完成，但是教程还没写）
 4. 音视频相关开发（ffmpeg...）
 
 ![长按二维码“识别”关注或者扫一扫](http://upload-images.jianshu.io/upload_images/3376017-984d23bad2d5a87d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
