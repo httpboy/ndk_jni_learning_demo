@@ -155,10 +155,11 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
             }
 
             break;
-            case R.id.btn_jni_03_jni_exeception://jni层产生异常，Java层捕捉native异常
+            case R.id.btn_jni_03_jni_exeception://jni层产生异常，jni层自行处理native异常
             {
                 try {
-                    String ndkEnv = NdkJni.exeception();
+                    NdkJni ndkJni = new NdkJni();
+                    String ndkEnv = ndkJni.exeception();
                     mTvShow.setText(ndkEnv);
                 } catch (Exception e) {
                     e.printStackTrace();

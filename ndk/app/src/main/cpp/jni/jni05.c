@@ -19,16 +19,26 @@
 JNIEXPORT
 jstring
 JNICALL
-Java_com_ndk_use_NdkJni_exeception(JNIEnv *env, jclass j_class) {
+Java_com_ndk_use_NdkJni_exeception(JNIEnv *env, jobject j_obj) {
 
     //*********************************知识点：Java层捕捉native异常 *****************************
-    jfieldID fid = (*env)->GetFieldID(env, j_class, "method", "Ljava/lang/String666;");
+    //获取jclass
+    jclass j_class = (*env)->GetObjectClass(env, j_obj);
+    //获取jfieldID
+    jfieldID j_fid = (*env)->GetFieldID(env, j_class, "method", "Ljava/lang/String666;");
     //检测是否发生Java异常
     jthrowable exception = (*env)->ExceptionOccurred(env);
     if (exception != NULL) {
         LOGE("jni发生异常");
         //jni清空异常信息
-        //(*env)->ExceptionClear(env);
+        (*env)->ExceptionClear(env);
+        //异常出现的问题，如何处理
+        j_fid = (*env)->GetFieldID(env, j_class, "method", "Ljava/lang/String");
+        //获取java成员变量int值
+        jstring j_stirng = (*env)->GetObjectField(env, j_obj, j_fid);
+        LOGI("noStaticKeyValue==%s", j_stirng);//noStaticKeyValue==0
+        //Set<Type>Field    修改noStaticKeyValue的值改为666
+        //(*env)->SetIntField(env, j_obj, j_fid, 666);
     }
 
     return (*env)->NewStringUTF(env, "Java层捕捉native异常");

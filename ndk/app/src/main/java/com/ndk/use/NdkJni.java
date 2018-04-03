@@ -57,5 +57,5 @@ public class NdkJni {
 
     public static native String ndkJni03Env();
 
-    public static native String exeception();
+    public native String exeception();
 }

@@ -282,7 +282,7 @@ Java_com_ndk_use_NdkJni_ndkJni03GetReReference(JNIEnv *env, jclass j_in_class) {
     //*********************************知识点：jni层获取引用（全局、局部） *****************************
 
     /*      引用类型：局部引用和全局引用
-     *              局部引用，通过DeleteLocalRef手动释放对象
+     *              局部引用，通过DeleteLocalRef手动释放对象  (*env)->DeleteGlobalRef(env, global_jstring);
      *
      *
      * */
