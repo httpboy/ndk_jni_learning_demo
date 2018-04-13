@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
     private Button mBtnJni03_btn_jni_03_Jni_get_Reference;
     private Button mBtnJni03_btn_jni_03_Jni_env;
     private Button mBtnJni03_btn_jni_03_Jni_exeception;
+    private Button mBtnJni03_btn_jni_03_Jni_throwexeception;
 
     public static void lanchActivity(Activity activity) {
         Intent intent = new Intent(activity, MainActivityJni.class);
@@ -59,6 +61,7 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
         mBtnJni03_btn_jni_03_Jni_get_Reference = (Button) findViewById(R.id.btn_jni_03_jni_get_reference);
         mBtnJni03_btn_jni_03_Jni_env = (Button) findViewById(R.id.btn_jni_03_jni_env);
         mBtnJni03_btn_jni_03_Jni_exeception = (Button) findViewById(R.id.btn_jni_03_jni_exeception);
+        mBtnJni03_btn_jni_03_Jni_throwexeception = (Button) findViewById(R.id.btn_jni_03_jni_Throwexeception);
 
         mBtnJni03.setOnClickListener(this);
         mBtnJni03_btn_jni_03_set_static_value.setOnClickListener(this);
@@ -73,6 +76,7 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
         mBtnJni03_btn_jni_03_Jni_get_Reference.setOnClickListener(this);
         mBtnJni03_btn_jni_03_Jni_env.setOnClickListener(this);
         mBtnJni03_btn_jni_03_Jni_exeception.setOnClickListener(this);
+        mBtnJni03_btn_jni_03_Jni_throwexeception.setOnClickListener(this);
     }
 
     private void testNdkJni() {
@@ -157,16 +161,26 @@ public class MainActivityJni extends AppCompatActivity implements View.OnClickLi
             break;
             case R.id.btn_jni_03_jni_exeception://jni层产生异常，jni层自行处理native异常
             {
+                NdkJni ndkJni = new NdkJni();
+                String ndkEnv = ndkJni.exeception();
+                mTvShow.setText(ndkEnv + "并且修改了method的字符串：" + ndkJni.getMethod());
+
+            }
+            break;
+            case R.id.btn_jni_03_jni_Throwexeception://jni层产生异常，java层处理native异常
+            {
                 try {
                     NdkJni ndkJni = new NdkJni();
-                    String ndkEnv = ndkJni.exeception();
-                    mTvShow.setText(ndkEnv);
+                    ndkJni.throwexeception();
                 } catch (Exception e) {
                     e.printStackTrace();
+                    //W/System.err:     at com.ndk.use.NdkJni.throwexeception(Native Method)
+                    //W/System.err:     at com.example.administrator.ndk.MainActivityJni.onClick(MainActivityJni.java:174)
+                } finally {
+                    Log.d("jni", "finally");
                 }
 
             }
-
             break;
             default:
                 break;

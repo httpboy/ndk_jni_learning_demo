@@ -58,4 +58,6 @@ public class NdkJni {
     public static native String ndkJni03Env();
 
     public native String exeception();
+
+    public native void throwexeception();
 }
