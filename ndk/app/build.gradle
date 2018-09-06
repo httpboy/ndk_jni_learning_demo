@@ -19,8 +19,25 @@ android {
         ndk {
             // Specifies the ABI configurations of your native
             // libraries Gradle should build and package with your APK.
-            abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a',
-                    'arm64-v8a', 'mips', 'mips64'
+//            abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a',
+//                    'arm64-v8a', 'mips', 'mips64'
+            /**
+             * Android studio升级到3.1.2
+             * ndk（v17）已不在支持mips、armeabi等CPU架构
+             只支持armeabi-v7a, arm64-v8a, x86, x86_64。
+
+             解决办法一：
+             剔除mips、armeabi等CPU架构
+             添加armeabi-v7a, arm64-v8a, x86, x86_64
+             理想很丰满，现实很骨感
+
+             解决二(亲测顺利解决)：
+             NDK降级到v16
+             替换AS里NDK或者修改ndk-bundle路径即可
+
+             */
+            abiFilters 'x86', 'x86_64', 'armeabi-v7a',
+                    'arm64-v8a'
 
         }
     }
