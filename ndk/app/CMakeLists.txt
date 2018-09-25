@@ -26,6 +26,10 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../jniLibs/${ANDROID_AB
 file(GLOB native_src_c "src/main/cpp/c/*.*")
 file(GLOB native_src_compute "src/main/cpp/compute/*.*")
 file(GLOB native_src_jni "src/main/cpp/jni/*.*")
+#剥除编译过程中生成二进制码
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -s")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -s")
+
 add_library(
             # Sets the name of the library
             #设置类库的名字
